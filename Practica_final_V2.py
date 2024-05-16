@@ -30,7 +30,7 @@ class ToDoList:
 
 class ListaTareas:
     def __init__(self):
-        ToDoList.tareas_pendientes = []
+        self.tareas_pendientes = []
 
     def añadir_tarea(self, titulo, descripcion="", estado="Pendiente"):
         tareas = ToDoList(titulo, descripcion, estado)
@@ -60,6 +60,13 @@ class ListaTareas:
             print(f"Tarea '{tarea.titulo}' completada correctamente.")
         except IndexError:
             print('Posición ingresada no válida')
+
+    def eliminar_tarea(self, id):
+        try:
+            del self.tareas_pendientes[id] #Eliminar la tarea de la posicion especifica de la lista
+            print("Tarea eliminada correctamente.")
+        except IndexError: # Si no es correctala posicion usa la excepcion IndexError para mostrar un error
+            print("La posición ingresada no es válida.")
 
     def ver_tarea(self, id):
         try:
@@ -97,16 +104,23 @@ class ListaTareas:
 
 def main():
     listatareas = ListaTareas()
-
-    if ToDoList.contador_id > 0:
-        listatareas.mostrar_tareas()
     
-    else:
-        print('No hay tareas')
 
     while True:
-        ToDoList.menu_opcciones()
+        print("\nTo-Do-List\n")
+        if listatareas.tareas_pendientes:
+            listatareas.mostrar_tareas()
+    
+        else:
+            print('No hay tareas')
+            ToDoList.menu_opcciones()
 
+        opcion = input("Que quieres hacer? ")
+
+        if opcion == '1':
+            titulo = input("Titulo de la tarea: ")
+            descripcion = input("Explica la tarea: ")
+            listatareas.añadir_tarea(titulo,descripcion)
     
 
 if __name__ == "__main__":
