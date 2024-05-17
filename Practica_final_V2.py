@@ -9,7 +9,7 @@ class ToDoList:
         ToDoList.contador_id += 1
         self.id = ToDoList.contador_id
         self.titulo = titulo
-        self.descipcion = descripcion
+        self.descripcion = descripcion
         self.estado = estado
     
     def mostrar_linea_separadora(caracter="-", longitud=50):
@@ -48,7 +48,7 @@ class ListaTareas:
     
     def empezar_tarea(self, id):
         try:
-            tareas = self.tareas_pendientes[id]
+            tareas = self.tareas_pendientes[id-1]
             tareas.estado = "En proceso"
             print(f"Tarea '{tareas.titulo}' Marcada en proceso correctamente.")
         except IndexError:
@@ -63,7 +63,7 @@ class ListaTareas:
 
     def eliminar_tarea(self, id):
         try:
-            del self.tareas_pendientes[id] #Eliminar la tarea de la posicion especifica de la lista
+            del self.tareas_pendientes[id-1] #Eliminar la tarea de la posicion especifica de la lista
             print("Tarea eliminada correctamente.")
         except IndexError: # Si no es correctala posicion usa la excepcion IndexError para mostrar un error
             print("La posición ingresada no es válida.")
@@ -75,32 +75,34 @@ class ListaTareas:
             print(f"Título: {tarea.titulo}")
             print(f"Descripción: {tarea.descripcion}")
             print(f"Estado: {tarea.estado}")
-            print("E: Empezar, C: Completar, D: Borrar, V: Volver")
+            print("\nE: Empezar, C: Completar, D: Borrar, V: Volver")
         except IndexError:
             print('Posición ingresada no válida')
 
     def opcion_tarea(self, id):
         while True:
             try:
-                opcionesTarea = input("\nSeleccione una opción: ").capitalize # Solicita una opcion
+                opcionesTarea = input("\nSeleccione una opción: ").capitalize()  # Solicita una opción
                 if opcionesTarea == "V":
                     break
                 elif opcionesTarea == "D":
                     del self.tareas_pendientes[id-1]
+                    print("Tarea eliminada correctamente.")
                     break
                 elif opcionesTarea == "E":
-                    tareas = self.tareas_pendientes[id]
-                    tareas.estado = "En proceso"
-                elif opcionesTarea == "c":
-                    tareas = self.tareas_pendientes[id]
-                    tareas.estado = "Completada"
-                elif opcionesTarea not in ['1', '2', '3', '4', '5']: # Verifica si la opción ingresada no está en la lista de opciones válidas
-                    raise ValueError("Opción no válida. Por favor, ingrese un número del 0 al 5.") # Genera una excepción ValueError si la opción no es válida
+                    tarea = self.tareas_pendientes[id-1]
+                    tarea.estado = "En proceso"
+                    print(f"Tarea '{tarea.titulo}' marcada en proceso correctamente.")
+                elif opcionesTarea == "C":
+                    tarea = self.tareas_pendientes[id-1]
+                    tarea.estado = "Completada"
+                    print(f"Tarea '{tarea.titulo}' completada correctamente.")
                 else:
-                    print("La opción seleccionada no está disponible en el manual. Por favor, seleccione otra opción.")
-
+                    print("Opción no válida. Por favor, ingrese una opción válida: V, D, E, C.")
             except IndexError:
-                print("opcion introducida no valida")
+                print("Posición ingresada no válida")
+            except ValueError:
+                print("Error de valor. Por favor, ingrese una opción válida.")
 
 def main():
     listatareas = ListaTareas()
@@ -113,7 +115,7 @@ def main():
     
         else:
             print('No hay tareas')
-            ToDoList.menu_opcciones()
+        ToDoList.menu_opcciones()
 
         opcion = input("Que quieres hacer? ")
 
@@ -121,6 +123,12 @@ def main():
             titulo = input("Titulo de la tarea: ")
             descripcion = input("Explica la tarea: ")
             listatareas.añadir_tarea(titulo,descripcion)
+        elif opcion == "2":
+            id = int(input("¿Que tarea quieres ver? "))
+            listatareas.ver_tarea(id)
+            listatareas.opcion_tarea(id)
+        elif opcion == "V":
+            ToDoList.menu_opcciones()
     
 
 if __name__ == "__main__":
