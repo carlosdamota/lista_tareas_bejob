@@ -1,0 +1,6 @@
+                    verificacion = (input(f"Estas seguro que quieres borrar la tarea {id}? S/N ")).capitalize
+                    if verificacion == 'S':
+                        listatareas.eliminar_tarea(id-1)
+                    elif verificacion == 'N':
+                        break
+

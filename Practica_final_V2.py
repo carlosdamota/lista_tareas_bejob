@@ -1,3 +1,4 @@
+'''Despues de la primera version que fue realizada integramanete en con chatGPT y modificada manualmente, decidi hacer una version 2 con lo que habia aprendido de la segunda usando chatgpt solo para aprender sobre los errores y como implementar colorama'''
 from colorama import init, Fore, Style
 
 # Inicializa colorama
@@ -22,10 +23,11 @@ class ToDoList:
         print("====== Menú Principal ======")
         print("\n1. Añadir nueva tarea")
         print("2. Mostrar tarea")
-        print("3. Marcar una tarea completada")
-        print("4. Eliminar una tarea")
-        print("5. Salir")
-        #print("6. Manual de intrucciones")
+        print("3. Empezar tarea")
+        print("4. Marcar una tarea completada")
+        print("5. Eliminar una tarea")
+        print("6. Salir")
+        #print("7. Manual de intrucciones")
         ToDoList.mostrar_linea_separadora()
 
 class ListaTareas:
@@ -63,10 +65,16 @@ class ListaTareas:
 
     def eliminar_tarea(self, id):
         try:
-            del self.tareas_pendientes[id-1] #Eliminar la tarea de la posicion especifica de la lista
-            print("Tarea eliminada correctamente.")
+            verificacion = (input(f"Estas seguro que quieres borrar la tarea {id+1}? S/N ")).capitalize()
+            if verificacion == 'S':
+                del self.tareas_pendientes[id]
+                print("Tarea eliminada correctamente.")
+            elif verificacion == 'N':
+                print ("Eliminacion cancelada")
+            else:
+                print("Esa opcion no es valida")
         except IndexError: # Si no es correctala posicion usa la excepcion IndexError para mostrar un error
-            print("La posición ingresada no es válida.")
+            print("El ID ingresada no es válido.")
 
     def ver_tarea(self, id):
         try:
@@ -127,6 +135,33 @@ def main():
             id = int(input("¿Que tarea quieres ver? "))
             listatareas.ver_tarea(id)
             listatareas.opcion_tarea(id)
+        elif opcion == '3':
+            #if listatareas.tareas_pendientes > 0:           
+                #listatareas.mostrar_tareas()
+                try:
+                    id = int(input("\nQue tarea quieres empezar: "))
+                    listatareas.empezar_tarea(id)
+                except ValueError:
+                    print("Porfavor ingrese un número valido.")
+        elif opcion == '4':
+            #if listatareas.tareas_pendientes > 0:
+                try:
+                    id = int(input("\nQue tarea esta completada? "))
+                    listatareas.completar_tarea(id)
+                except ValueError:
+                    print("Porfavor ingrese el numero valido")
+
+        elif opcion == '5':
+            #if listatareas.tareas_pendientes > 0:
+            try:
+                id = int(input("\nQue tarea quieres eliminar? "))
+                listatareas.eliminar_tarea(id-1)
+            except ValueError:
+                print("Porfavor ingrese el numero valido")
+
+        elif opcion == '6':
+            print("Saliendo del programa...")
+            break
         elif opcion == "V":
             ToDoList.menu_opcciones()
     
