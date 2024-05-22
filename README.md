@@ -53,7 +53,7 @@ En esta segunda versión del código, se han implementado varias mejoras y carac
 La interfaz del usuario se ha mejorado significativamente utilizando la biblioteca colorama para hacerla más amigable y colorida. Los mensajes de salida y la presentación del menú principal ahora son más claros y atractivos visualmente. Además, se ha realizado un refinamiento del manejo de excepciones para cubrir más casos de errores y proporcionar mensajes de error más claros al usuario.
 
 ## Capturas de Pantalla
-   ### V1 ###
+   ### V1
 ![Captura menu principal](/Capturas/Practica_final_V1_3.png)
 ![Tareas añadidas](/Capturas/Practica_final_V1_4.png)
 ![Completar tareas](/Capturas/Practica_final_V1_5.png)
@@ -62,6 +62,9 @@ La interfaz del usuario se ha mejorado significativamente utilizando la bibliote
 ![Mensajes de excepcion](/Capturas/Practica_final_V1_1.png)
 ![Mensajes de excepcion](/Capturas/Practica_final_V1_7.png)
 
+   ### V2
+![Capturas version 2](/Capturas/Practica_final_v2_1.png) ![Capturas version 2](/Capturas/Practica_final_v2_2.png)![Capturas version 2](/Capturas/Practica_final_v2_3.png)
+![Capturas version 2](/Capturas/Practica_final_v2_4.png) ![Capturas version 2](/Capturas/Practica_final_v2_5.png) ![Capturas version 2](/Capturas/Practica_final_v2_6.png) ![Capturas version 2](/Capturas/Practica_final_v2_7.png)
 ## Cómo Ejecutar el Programa
 1. Asegúrate de tener Python instalado en tu sistema.
 2. Descarga el archivo `Practica_final.py`.
