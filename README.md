@@ -23,11 +23,18 @@ Este proyecto es un gestor de tareas en Python que utiliza Programación Orienta
 
 ## Funcionalidades
 
+**Version 1.1.0**
 - **Agregar una nueva tarea:** Permite al usuario agregar una nueva tarea a la lista de tareas pendientes.
 - **Marcar una tarea como completada:** Permite al usuario marcar una tarea como completada, dada su posición en la lista.
 - **Eliminar una tarea:** Permite al usuario eliminar una tarea de la lista, dada su posición.
 - **Manejo de excepciones:** El programa maneja excepciones en caso de que el usuario ingrese una opción no válida o una posición que no exista en la lista.
 - **Comentarios explicativos:** El código está comentado para explicar su funcionamiento en cada parte relevante.
+
+**Version 2.0.0**
+- **Mostrar Tarea:** Permite al usuario ver y empezar, completar o elimnar de manera unitaria una tarea de la lista.
+- **Generador de ID:** Se crea un generador de ID para que pueda ser mas escalable.
+- **Uso de colorama:** Se ha modificado el estilo visual, para que las tareas se vean de uno u otro color segun el estado.
+- **Retirado:** He elimnado por falta de tiempo el menu en esta segunda version, asi como el poder ver la lista de tareas, ya que por defecto simpre estan visibles
 
 ## Diferencias entre el Enunciado y el Código
 
@@ -38,6 +45,12 @@ Separación del Menú Principal y las Tareas: En el enunciado, se pedía mostrar
 Mejora de los Mensajes de Salida: Has mejorado los mensajes de salida en las funciones de marcar una tarea como completada y eliminar una tarea, proporcionando más información sobre el estado de la operación.
 
 Además de las mejoras mencionadas anteriormente, también se ha agregado un manual y un contador de tareas que muestra el número de tareas pendientes y completadas en el menú principal. Esta característica proporciona una vista rápida y clara del estado actual de las tareas sin necesidad de revisar la lista completa. La inclusión de este contador mejora la usabilidad del programa al proporcionar información relevante de un vistazo.
+
+**Versión 2 del Código**
+
+En esta segunda versión del código, se han implementado varias mejoras y características adicionales. Ahora, el programa permite al usuario marcar una tarea como "En proceso", facilitando el seguimiento de las tareas que están siendo trabajadas actualmente. También se ha añadido una funcionalidad que permite ver una tarea específica con más detalle, mostrando su título, descripción y estado. Además, se han añadido opciones para empezar, completar o eliminar la tarea directamente desde la vista detallada.
+
+La interfaz del usuario se ha mejorado significativamente utilizando la biblioteca colorama para hacerla más amigable y colorida. Los mensajes de salida y la presentación del menú principal ahora son más claros y atractivos visualmente. Además, se ha realizado un refinamiento del manejo de excepciones para cubrir más casos de errores y proporcionar mensajes de error más claros al usuario.
 
 ## Capturas de Pantalla
    ### V1 ###
@@ -59,7 +72,7 @@ Además de las mejoras mencionadas anteriormente, también se ha agregado un man
    python3 Practica_final.py
 
 ## Instrucciones de Uso
-
+**Veriosion 1**
 1. **Añadir nueva Tarea:**
    - Desde el menú principal (Mostrado al ejecutar el programa), seleccione la opción correspondiente al número 1.
    - Se le pedirá que ingrese la descripción de la nueva tarea y presione Enter.
@@ -78,6 +91,63 @@ Además de las mejoras mencionadas anteriormente, también se ha agregado un man
    - Desde el menú principal, seleccione la opción correspondiente al número 4.
    - El programa se cerrará.
 
+5. **Manual:**
+   - Permite desde el menu principal selecionar el numero correspondeinte 5.
+   - Aparecera el manual para gestionar la lista de tareas.
+   - Para volver al menu V
+
+# Manual de Instrucciones para el Programa de Lista de Tareas (Versión 2)
+
+---
+
+## Menú Principal
+
+1. **Añadir tarea:** Permite agregar una nueva tarea. Se solicitará el título y la descripción de la tarea.
+2. **Mostrar tarea:** Muestra una tarea específica ingresando su ID. Desde esta opción, se puede empezar, completar o eliminar la tarea, o volver al menú principal.
+3. **Empezar tarea:** Permite marcar una tarea como "En proceso" ingresando su ID.
+4. **Completar tarea:** Permite marcar una tarea como "Completada" ingresando su ID.
+5. **Eliminar tarea:** Permite eliminar una tarea ingresando su ID.
+6. **Salir:** Sale del programa.
+7. **Manual de instrucciones:** Muestra este manual.
+
+---
+
+## Detalles de las Funciones
+
+### Añadir Tarea:
+
+- El usuario debe ingresar el título de la tarea.
+- Luego, se solicita una descripción opcional.
+- La tarea se agrega a la lista con el estado "Pendiente".
+
+### Mostrar Tarea:
+
+- El usuario ingresa el ID de la tarea.
+- Se muestra el título, la descripción y el estado de la tarea.
+- Opciones disponibles:
+  - **E:** Empezar la tarea.
+  - **C:** Completar la tarea.
+  - **D:** Borrar la tarea.
+  - **V:** Volver al menú principal.
+
+### Empezar Tarea:
+
+- El usuario ingresa el ID de la tarea que desea marcar como "En proceso".
+- Se actualiza el estado de la tarea.
+
+### Completar Tarea:
+
+- El usuario ingresa el ID de la tarea que desea marcar como "Completada".
+- Se actualiza el estado de la tarea.
+
+### Eliminar Tarea:
+
+- El usuario ingresa el ID de la tarea que desea eliminar.
+- Se solicita confirmación antes de eliminar la tarea.
+
+### Salir:
+
+- Sale del programa.
 ## Visualización de Tareas
 
 En todo momento, se puede ver la cantidad de tareas pendientes y completadas en el contador de tareas en la parte superior del menú principal. Además, la lista de tareas pendientes se muestra debajo del contador.
