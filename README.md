@@ -40,14 +40,14 @@ Mejora de los Mensajes de Salida: Has mejorado los mensajes de salida en las fun
 Además de las mejoras mencionadas anteriormente, también se ha agregado un manual y un contador de tareas que muestra el número de tareas pendientes y completadas en el menú principal. Esta característica proporciona una vista rápida y clara del estado actual de las tareas sin necesidad de revisar la lista completa. La inclusión de este contador mejora la usabilidad del programa al proporcionar información relevante de un vistazo.
 
 ## Capturas de Pantalla
-
-![Captura menu principal](/Capturas/Captura%20desde%202024-05-11%2007-52-00.png)
-![Tareas añadidas](/Capturas/Captura%20desde%202024-05-11%2007-55-06.png)
-![Completar tareas](/Capturas/Captura%20desde%202024-05-11%2007-56-01.png)
-![Eliminar tareas](/Capturas/Captura%20desde%202024-05-11%2007-57-00.png)
-![Manual](/Capturas/Captura%20desde%202024-05-11%2007-58-57.png)
-![Mensajes de excepcion](/Capturas/Captura%20desde%202024-05-10%2007-23-33.png)
-![Mensajes de excepcion](/Capturas/Captura%20desde%202024-05-10%2007-24-01.png)
+   ### V1 ###
+![Captura menu principal](/Capturas/Practica_final_V1_3.png)
+![Tareas añadidas](/Capturas/Practica_final_V1_4.png)
+![Completar tareas](/Capturas/Practica_final_V1_5.png)
+![Eliminar tareas](/Capturas/Practica_final_V1_6.png)
+![Manual](/Capturas/Practica_final_V1_7.png)
+![Mensajes de excepcion](/Capturas/Practica_final_V1_1.png)
+![Mensajes de excepcion](/Capturas/Practica_final_V1_7.png)
 
 ## Cómo Ejecutar el Programa
 1. Asegúrate de tener Python instalado en tu sistema.
